@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     <style id="stndz-style">
         body {
-            background: #f4f4f4;
+            background: black;
             font-family: Arial, sans-serif;
             font-size: 14px;
         }
@@ -21,6 +21,7 @@
         
         .news-col {
             width: 55%;
+            padding-top: 2em;
         }
         
         .tabel-col {
@@ -96,7 +97,7 @@
             flex: 0 0 49.5%;
             max-width: 49.5%;
             overflow: auto;
-            max-height: 299px;
+            max-height: 350px;
             scrollbar-width: thin;
             scrollbar-color: #f5f5f5;
         }
@@ -107,7 +108,7 @@
         }
         
         .tabel-slider .slide:-webkit-scrollbar-track {
-            background: #f5f5f5;
+            background: black;
         }
         
         .tabel-slider .slide:-webkit-scrollbar-thumb {
@@ -117,16 +118,16 @@
         }
         
         .tabel-slider .slide::-webkit-scrollbar-track {
-            background-color: #f5f5f5;
+            background-color: black;
         }
         
         .tabel-slider .slide::-webkit-scrollbar {
             width: 5px;
-            background-color: #f5f5f5;
+            background-color: black;
         }
         
         .tabel-slider .slide::-webkit-scrollbar-thumb {
-            background-color: #ccc;
+            background-color: black;
         }
         
         .tabel-slider .slide:nth-child(odd) {
@@ -203,12 +204,14 @@
             list-style: none;
             outline: none;
             text-decoration: none;
-            color: white;
             background-color: black;
         }
         
-        .sportNewsSection {
+        .sportNewsSection,
+        .newsSection,
+        .news-container {
             padding: 0.2rem;
+            color: white;
         }
         
         .header {
@@ -219,7 +222,6 @@
 
 <body cz-shortcut-listen="true">
     <section class="sportNewsSection">
-        <header>Latest Sports News</header>
         <div class="sport-news-iframe">
             <section class="new-section">
                 <div class="news-container">
@@ -316,33 +318,33 @@
               <div class="tabel-slider">
                 <div class="slide">
                   <iframe
-                    src="https://www.scoreaxis.com/widget/standings-widget/8?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    src="https://www.scoreaxis.com/widget/standings-widget/8?columns=1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group="
                     width="100%"
-                    height="535"
+                    height="538"
                     style="border: none"
                   ></iframe>
                 </div>
                 <div class="slide">
                   <iframe
-                    src="https://www.scoreaxis.com/widget/standings-widget/82?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    src="https://www.scoreaxis.com/widget/standings-widget/384?columns=1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group="
                     width="100%"
-                    height="535"
+                    height="538"
                     style="border: none"
                   ></iframe>
                 </div>
                 <div class="slide">
                   <iframe
-                    src="https://www.scoreaxis.com/widget/standings-widget/564?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    src="https://www.scoreaxis.com/widget/standings-widget/564?columns=1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group="
                     width="100%"
-                    height="535"
+                    height="538"
                     style="border: none"
                   ></iframe>
                 </div>
                 <div class="slide">
                   <iframe
-                    src="https://www.scoreaxis.com/widget/standings-widget/384?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    src="https://www.scoreaxis.com/widget/standings-widget/82?columns=1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group="
                     width="100%"
-                    height="535"
+                    height="462"
                     style="border: none"
                   ></iframe>
                 </div>
