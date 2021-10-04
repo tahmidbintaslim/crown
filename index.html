@@ -8,10 +8,195 @@
     <title>Crown Addons</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <style>
+    <style id="stndz-style">
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        
+        .news-container {
+            display: flex;
+        }
+        
+        .news-col {
+            width: 55%;
+        }
+        
+        .tabel-col {
+            width: 45%;
+        }
+        
+        .news-list {
+            display: flex;
+            margin-bottom: 18px;
+        }
+        
+        .news-image {
+            width: 180px;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .news-image svg {
+            max-width: 170px;
+            max-height: 106px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .news-content {
+            padding: 0px 15px;
+            width: calc(100% - 180px);
+        }
+        
+        .title {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #d9b08c;
+            font-size: 16px;
+        }
+        
+        .date {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .description {
+            overflow: hidden;
+            /* display: -webkit-box; */
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .link {
+            text-decoration: unset;
+            color: #d9b08c;
+        }
+        
+        .link:hover {
+            color: #922a31;
+        }
+        
+        .tabel-slider {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .tabel-slider .slide {
+            flex: 0 0 49.5%;
+            max-width: 49.5%;
+            overflow: auto;
+            max-height: 299px;
+            scrollbar-width: thin;
+            scrollbar-color: #f5f5f5;
+        }
+        /*FireFox Scrollbar*/
+        
+        .tabel-slider .slide:-webkit-scrollbar {
+            width: 3px;
+        }
+        
+        .tabel-slider .slide:-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+        
+        .tabel-slider .slide:-webkit-scrollbar-thumb {
+            background-color: #000;
+            border-radius: 0px;
+            border: 0px solid transparent;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar-track {
+            background-color: #f5f5f5;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar {
+            width: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+        }
+        
+        .tabel-slider .slide:nth-child(odd) {
+            margin-right: auto;
+        }
+        
+        .tabel-slider img {
+            width: 100%;
+        }
+        
+        .previous,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 3px;
+            margin-top: 0;
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            display: none;
+        }
+        
+        .previous svg,
+        .next svg {
+            width: 12px;
+            height: 12px;
+        }
+        
+        .previous {
+            right: 20px;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        @media (max-width: 767px) {
+            .news-container {
+                display: block;
+            }
+            .col {
+                width: 100%;
+            }
+            .news-content {
+                padding: 0px 15px;
+            }
+            .tabel-slider .slide {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .news-list {
+                display: block;
+            }
+            .news-image,
+            .news-content {
+                width: 100%;
+            }
+            .news-content {
+                padding: 0;
+                margin-top: 5px;
+            }
+            .news-image svg {
+                display: block;
+                margin: auto;
+            }
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -19,51 +204,244 @@
             outline: none;
             text-decoration: none;
             color: white;
+            background-color: black;
         }
         
-        body {
-            background: black;
+        .sportNewsSection {
+            padding: 0.2rem;
         }
         
-        .sportNewsSection,
-        .sport-news-iframe,
-        iframe {
+        .header {
             padding: 0.5rem;
-            height: 100vh;
-            width: 100%;
-            background: black;
         }
     </style>
-    <script>
-        const data = null;
+</head>
 
-        const xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function() {
-            if (this.readyState === this.DONE) {
-                console.log(this.responseText);
-            }
-        });
-
-        xhr.open(
-            "GET",
-            "https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=40"
-        );
-        xhr.setRequestHeader("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
-        xhr.setRequestHeader(
-            "x-rapidapi-key",
-            "1fb4247701msh4210b06ddbcd8bap1970b1jsn93d768b6d801"
-        );
-
-        xhr.send(data);
-    </script>
-
+<body cz-shortcut-listen="true">
     <section class="sportNewsSection">
         <header>Latest Sports News</header>
         <div class="sport-news-iframe">
-            <iframe src="https://projects.qseksolutions.com/winbig7/"></iframe>
-        </div>
+            <section class="new-section">
+                <div class="news-container">
+                    <div class="col news-col">
+                        <div class="news-list">
+                            <div class="news-image">
+                                <img src="https://a.espncdn.com/photo/2021/1003/r917747_1296x729_16-9.jpg" />
+                            </div>
+                            <div class="news-content">
+                                <h3 class="title">
+                                    Weekend review: Madrid, PSG upset; more Barca woe
+                                </h3>
+                                <p class="date">Mon, 4 Oct 2021 05:23:34 EST</p>
+                                <p class="description">
+                                    On a weekend that saw several big clubs upset, Juve's Manuel Locatelli had two reasons to celebrate and Mohamed Salah was superb for Liverpool.
+                                </p>
+                                <a class="link" href="https://www.espn.com/soccer/blog-espn-fc-united/story/4489574/madridbarcelonapsg-woe-man-united-slip-again-sensational-salah-what-you-missed-this-weekend" target="_blank">Read More</a
+                  >
+                </div>
+              </div>
+              <div class="news-list">
+                <div class="news-image">
+                  <img
+                    src="https://a.espncdn.com/photo/2021/1004/r918227_1296x729_16-9.jpg"
+                  />
+                </div>
+                <div class="news-content">
+                  <h3 class="title">
+                    LA Galaxy unveil Donovan statue outside stadium
+                  </h3>
+                  <p class="date">Mon, 4 Oct 2021 04:42:53 EST</p>
+                  <p class="description">
+                    LA Galaxy and Major League Soccer unveiled a bronze statue
+                    of club legend Landon Donovan outside Dignity Health Sports
+                    Park on Sunday.
+                  </p>
+                  <a
+                    class="link"
+                    href="https://www.espn.com/soccer/la-galaxy/story/4491285/la-galaxy-unveil-landon-donovan-statue-outside-stadium"
+                    target="_blank"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+              <div class="news-list">
+                <div class="news-image">
+                  <img
+                    src="https://a.espncdn.com/photo/2021/0927/r914972_1296x729_16-9.jpg"
+                  />
+                </div>
+                <div class="news-content">
+                  <h3 class="title">
+                    Ole: I can get best out of Man Utd superstars
+                  </h3>
+                  <p class="date">Mon, 4 Oct 2021 04:42:53 EST</p>
+                  <p class="description">
+                    Ole Gunnar Solskjaer said he can get the best out of
+                    Manchester United's superstar squad.
+                  </p>
+                  <a
+                    class="link"
+                    href="https://www.espn.com/soccer/manchester-united-engman_utd/story/4491157/ole-gunnar-solskjaer-i-can-get-best-out-of-man-united-superstars"
+                    target="_blank"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+              <div class="news-list">
+                <div class="news-image">
+                  <img
+                    src="https://a.espncdn.com/photo/2021/1003/r917811_1296x729_16-9.jpg"
+                  />
+                </div>
+                <div class="news-content">
+                  <h3 class="title">
+                    Source: Pep, City staff spat at in Anfield clash
+                  </h3>
+                  <p class="date">Mon, 4 Oct 2021 04:42:53 EST</p>
+                  <p class="description">
+                    Pep Guardiola and his Manchester City backroom staff were
+                    spat at during Sunday's 2-2 draw at Liverpool, a City source
+                    told ESPN.
+                  </p>
+                  <a
+                    class="link"
+                    href="https://www.espn.com/soccer/liverpool-engliverpool/story/4490688/manchester-citys-pep-guardiola-coaching-staff-spat-at-during-liverpool-clash-source"
+                    target="_blank"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col tabel-col">
+              <div class="tabel-slider">
+                <div class="slide">
+                  <iframe
+                    src="https://www.scoreaxis.com/widget/standings-widget/8?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    width="100%"
+                    height="535"
+                    style="border: none"
+                  ></iframe>
+                </div>
+                <div class="slide">
+                  <iframe
+                    src="https://www.scoreaxis.com/widget/standings-widget/82?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    width="100%"
+                    height="535"
+                    style="border: none"
+                  ></iframe>
+                </div>
+                <div class="slide">
+                  <iframe
+                    src="https://www.scoreaxis.com/widget/standings-widget/564?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    width="100%"
+                    height="535"
+                    style="border: none"
+                  ></iframe>
+                </div>
+                <div class="slide">
+                  <iframe
+                    src="https://www.scoreaxis.com/widget/standings-widget/384?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&amp;tabs=0&amp;header=1&amp;bg=%23FFFFFF&amp;color=%23313934&amp;bodyBackground=%23f4f4f4&amp;fontSize=12&amp;font=1"
+                    width="100%"
+                    height="535"
+                    style="border: none"
+                  ></iframe>
+                </div>
+
+                <!-- Next and Previous icon to change images -->
+                <a class="previous" onclick="moveSlides(-1)">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-left"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                    ></path>
+                  </svg>
+                </a>
+                                <a class="next" onclick="moveSlides(1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path
+                      fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                    ></path>
+                  </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- <script>
+            var slideIndex = 1;
+            displaySlide(slideIndex);
+    
+            function moveSlides(n) {
+                displaySlide(slideIndex += n);
+            }
+    
+            /* Main function */
+            function displaySlide(n) {
+                var i;
+                var totalslides =
+                    document.getElementsByClassName("slide");
+                
+                var totaldots =
+                    document.getElementsByClassName("footerdot");
+                
+                if (n > totalslides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = totalslides.length;
+                }
+                for (i = 0; i < totalslides.length; i++) {
+                    totalslides[i].style.display = "none";
+                }
+                for (i = 0; i < totaldots.length; i++) {
+                    totaldots[i].className =
+                    totaldots[i].className.replace(" active", "");
+                }
+                totalslides[slideIndex - 1].style.display = "block";
+                totaldots[slideIndex - 1].className += " active";
+            }
+        </script> -->
+
+            <iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none"></iframe>
+            <div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat='{"tlang":true,"tsbc":true,"pun":true,"mk":true,"ss":true}' style="display: none"></div>
+
+            <script>
+                const data = null;
+
+                const xhr = new XMLHttpRequest();
+                xhr.withCredentials = true;
+
+                xhr.addEventListener("readystatechange", function() {
+                    if (this.readyState === this.DONE) {
+                        console.log(this.responseText);
+                    }
+                });
+
+                xhr.open(
+                    "GET",
+                    "https://api-football-v1.p.rapidapi.com/v3/standings?season=2021&league=40"
+                );
+                xhr.setRequestHeader(
+                    "x-rapidapi-host",
+                    "api-football-v1.p.rapidapi.com"
+                );
+                xhr.setRequestHeader(
+                    "x-rapidapi-key",
+                    "1fb4247701msh4210b06ddbcd8bap1970b1jsn93d768b6d801"
+                );
+
+                xhr.send(data);
+            </script>
+            </div>
     </section>
 </body>
 
