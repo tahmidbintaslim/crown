@@ -12,10 +12,26 @@
 
 <body>
     <style>
-        .home-container .articleContainer .sportNewsSection .sport-news-iframe iframe {
-            border: 0.02rem solid #922a31;
-            height: 6.4rem;
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            outline: none;
+            text-decoration: none;
+            color: white;
+        }
+        
+        body {
+            background: black;
+        }
+        
+        .sportNewsSection,
+        .sport-news-iframe,
+        iframe {
+            padding: 0.5rem;
+            height: 100vh;
             width: 100%;
+            background: black;
         }
     </style>
     <script>
@@ -42,10 +58,11 @@
 
         xhr.send(data);
     </script>
+
     <section class="sportNewsSection">
         <header>Latest Sports News</header>
         <div class="sport-news-iframe">
-            <iframe width="100%" height="100%" src="https://projects.qseksolutions.com/winbig7/"></iframe>
+            <iframe src="https://projects.qseksolutions.com/winbig7/"></iframe>
         </div>
     </section>
 </body>
