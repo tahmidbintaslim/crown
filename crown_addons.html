@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Crown Addons</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/gh/taraphirun/crown/dist/crown-news-add-on.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style id="stndz-style">
+        body {
+            background: black;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        
+        .news-container {
+            display: flex;
+        }
+        
+        .news-col {
+            width: 55%;
+            padding-top: 0.5em;
+        }
+        
+        .tabel-col {
+            width: 45%;
+        }
+        
+        .news-list {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .news-image {
+            width: 180px;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .news-image svg {
+            max-width: 170px;
+            max-height: 106px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .news-content {
+            padding: 0px 15px;
+            width: calc(100% - 180px);
+        }
+        
+        .title {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: white;
+            background-color: transparent;
+            font-size: 16px;
+        }
+        
+        .Money {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .align-items-center {
+            height: 400px;
+        }
+        
+        .date {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .description {
+            overflow: hidden;
+            /* display: -webkit-box; */
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .link {
+            text-decoration: unset;
+            color: #d9b08c;
+        }
+        
+        .link:hover {
+            color: #922a31;
+        }
+        
+        .tabel-slider {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .tabel-slider .slide {
+            flex: 0 0 49.5%;
+            max-width: 49.5%;
+            overflow: auto;
+            max-height: 350px;
+            scrollbar-width: thin;
+            scrollbar-color: #f5f5f5;
+        }
+        /*FireFox Scrollbar*/
+        
+        .tabel-slider .slide:-webkit-scrollbar {
+            width: 3px;
+        }
+        
+        .tabel-slider .slide:-webkit-scrollbar-track {
+            background: black;
+        }
+        
+        .tabel-slider .slide:-webkit-scrollbar-thumb {
+            background-color: #000;
+            border-radius: 0px;
+            border: 0px solid transparent;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar-track {
+            background-color: black;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar {
+            width: 5px;
+            background-color: black;
+        }
+        
+        .tabel-slider .slide::-webkit-scrollbar-thumb {
+            background-color: black;
+        }
+        
+        .tabel-slider .slide:nth-child(odd) {
+            margin-right: auto;
+        }
+        
+        .tabel-slider img {
+            width: 100%;
+        }
+        
+        .previous,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 3px;
+            margin-top: 0;
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            display: none;
+        }
+        
+        .previous svg,
+        .next svg {
+            width: 12px;
+            height: 12px;
+        }
+        
+        .previous {
+            right: 20px;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        @media (max-width: 767px) {
+            .news-container {
+                display: block;
+            }
+            .col {
+                width: 100%;
+            }
+            .news-content {
+                padding: 0px 15px;
+            }
+            .tabel-slider .slide {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .news-list {
+                display: block;
+            }
+            .news-image,
+            .news-content {
+                width: 100%;
+            }
+            .news-content {
+                padding: 0;
+                margin-top: 5px;
+            }
+            .news-image svg {
+                display: block;
+                margin: auto;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            outline: none;
+            text-decoration: none;
+            background-color: black;
+        }
+        
+        .sportNewsSection,
+        .newsSection,
+        .news-container {
+            padding: 0.2rem;
+            color: white;
+        }
+        
+        .header {
+            padding: 0.5rem;
+        }
+        
+        .video {
+            padding: 1rem 0.5rem 0.5rem 0;
+        }
+        
+        .third,
+        .fourth {
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body cz-shortcut-listen="true">
+    <section class="sportNewsSection">
+        <div class="sport-news-iframe">
+            <section class="new-section">
+                <div class="news-container">
+                    <div class="col news-col">
+                        <div class="video">
+                            <iframe width="100%" height="330px" src="https://www.youtube.com/embed/dn-tyJnq06w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="news-list">
+                            <crown-news-only></crown-news-only>
+                        </div>
+
+                    </div>
+                    <div class="col tabel-col">
+                        <div class="tabel-slider">
+                            <div class="slide first">
+                                <iframe src="https://www.scoreaxis.com/widget/standings-widget/8?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group=" width="100%"
+                                    height="538" style="border: none"></iframe>
+                            </div>
+                            <div class="slide second">
+                                <iframe src="https://www.scoreaxis.com/widget/standings-widget/384?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group=" width="100%"
+                                    height="538" style="border: none"></iframe>
+                            </div>
+                            <div class="slide third">
+                                <iframe src="https://www.scoreaxis.com/widget/standings-widget/564?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group=" width="100%"
+                                    height="538" style="border: none"></iframe>
+                            </div>
+                            <div class="slide fourth">
+                                <iframe src="https://www.scoreaxis.com/widget/standings-widget/82?columns=1%2C1%2C1%2C1%2C1%2C1%2C0%2C0%2C1&tabs=0&header=1&bg=%23FFFFFF&color=%23313934&headerBg=%23000000&headerColor=%23ffffff&bodyBackground=%23000000&textColor=%23ffffff&group=" width="100%"
+                                    height="538" style="border: none"></iframe>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</body>
+
+</html>
